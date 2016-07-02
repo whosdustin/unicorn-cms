@@ -1,0 +1,158 @@
+
+@mixin forms($arg: ()) {
+  $arg: map-merge((
+    name: 'form',
+    font: $font-family-form,
+    label: (
+      weight: 700,
+      size: $font-size-base,
+      color: $form-label-color
+    ),
+    input: (
+      padding: 10px 0 10px 10px,
+      border: $input-border,
+      radius: 3px,
+      background: $input-bkg,
+      color: $input-color
+    ),
+    help-text-color: #aaa
+  ), $arg);
+
+  // Form
+  .#{map-get($arg, name)} {
+
+    &__label {
+      margin-bottom: 0;
+      font-family: map-get($arg, font);
+      font-size: map-deep-get($arg, label, size);
+      font-weight: map-deep-get($arg, label, weight);
+      color: map-deep-get($arg, label, color);
+    }
+
+    // .form__input
+    &__input {
+      @include box-sizing;
+      @include placeholder;
+      display: block;
+      position: relative;
+      width: 100%;
+      margin: 10px 0;
+      padding: map-deep-get($arg, input, padding);
+      background: map-deep-get($arg, input, background);
+      border: 1px solid map-deep-get($arg, input, border);
+      border-radius: map-deep-get($arg, input, radius);
+      font-family: map-get($arg, font);
+      color: map-deep-get($arg, input, color);
+      &[disabled],
+      &--is-disabled,
+      &[readonly],
+      fieldset[disabled] & {
+        @include opacity(0.5);
+        background: $input-bkg-disabled;
+        cursor: not-allowed;
+      }
+      // Feedback states
+      @include states((
+        outline: true,
+        placeholder: true,
+        border: true
+      ));
+    }
+    // Form Groups // ------------------------------------
+
+    // Group form inputs with field validation
+    // help text or key press help text.
+    &__group {
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    // Radio & Checkboxes // ------------------------------------
+
+    %formcontrols {
+
+    }
+
+    &__radio,
+    &__check {
+      display: block;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      font-family: map-get($arg, font);
+      font-weight: 400;
+      cursor: pointer;
+    }
+    &__radio--inline,
+    &__check--inline {
+      display: inline-block;
+      position: relative;
+      vertical-align: middle;
+      padding-left: 20px;
+      font-family: map-get($arg, font);
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    // Select Box // ------------------------------------
+    &__select {
+      display: inline-block;
+      max-width: 100%;
+      padding: 10px 24px 10px 10px;
+      vertical-align: middle;
+      border: solid 1px map-deep-get($arg, input, border);
+      border-radius: 0;
+      background: $input-bkg url($select-image) no-repeat right 8px center;
+      background-size: 8px 10px;
+      font-family: map-get($arg, font);
+      // Have to include vendor prefixes as the `appearance` property isn't part of the CSS spec.
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
+      // IE9 hacks to hide the background-image and reduce padding
+      padding-right: 8px \9;
+      background-image: none \9;
+
+      // Hides the default caret in IE11
+      &::-ms-expand {
+        opacity: 0;
+      }
+      // Select validation styles
+      @include states((
+        border: true,
+        outline: true
+      ));
+      // Hide validation icon for select boxes
+      + .form__help-text:after {
+        display: none;
+      }
+    }
+
+    // Help Text // ------------------------------------
+    &__help-text {
+      color: map-get($arg, help-text-color);
+      display: block;
+      position: relative;
+      margin-top: -10px;
+      margin-bottom: 10px;
+      font-family: map-get($arg, font);
+      // &:after {
+      //   position: absolute;
+      //   top: -2.9rem;
+      //   right: 1.5rem;
+      //   font-family: $font-icon;
+      //   font-size: 2rem;
+      // }
+      // Help text validation styles.
+      // When added to input fields make sure to wrap
+      // in a .form__group
+      @include states((
+        color: true,
+        icon: true
+      ));
+    }
+  }
+}
+
+// @include forms();

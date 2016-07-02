@@ -1,0 +1,18 @@
+// @access public
+// @example scss - Usage
+//   .foo {
+//     @extend %clearfix;
+//   }
+%clearfix {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    display: table;
+    content: ' ';
+  }
+
+  &:after {
+    clear: both;
+  }
+}

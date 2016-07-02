@@ -1,0 +1,19 @@
+// @access public
+// @param {String} $type - Either `ellipsis` or `clip`
+// @example scss - Usage
+//   .foo {
+//     @include text-overflow(ellipsis);
+//   }
+// @example css - Result
+//   .foo {
+//     -moz-text-overflow: ellipsis;
+//     -o-text-overflow: ellipsis;
+//     text-overflow: ellipsis;
+//   }
+@mixin truncate($type) {
+  @include prefix(text-overflow, $type, 'ms' 'o');
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: top;
+}

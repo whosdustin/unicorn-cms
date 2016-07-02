@@ -1,0 +1,33 @@
+{
+  "name": "ionicss",
+  "description": "Basic front-end framework and guidelines",
+  "version": "0.1.2",
+  "main": "scss/ionicss.scss",
+  "authors": [
+    "Dustin Delatore <dustin@delatore.me>"
+  ],
+  "dependencies": {},
+  "ignore": [
+    "**/.*",
+    "*.md",
+    "*.json",
+    "*.yml",
+    "Gemfile",
+    "Gemfile.lock",
+    "node_modules",
+    "bower_components",
+    "app",
+    "test",
+    "tests"
+  ],
+  "homepage": "https://github.com/gnarlacious/ionicss",
+  "_release": "0.1.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.2",
+    "commit": "c3fc43c7baeaf071a7526d3e7743f8408a79f604"
+  },
+  "_source": "https://github.com/gnarlacious/ionicss.git",
+  "_target": "0.1.2",
+  "_originalSource": "ionicss"
+}

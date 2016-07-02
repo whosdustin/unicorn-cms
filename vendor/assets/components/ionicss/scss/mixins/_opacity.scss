@@ -1,0 +1,15 @@
+// @access public
+// @param {Float} $opacity - Opacity
+// @example scss - Usage
+//   .foo {
+//     @include opacity(0.5);
+//   }
+// @example css - Result
+//   .foo {
+//     opacity: 0.5;
+//     filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#50)";
+//   }
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity * 100})";
+}

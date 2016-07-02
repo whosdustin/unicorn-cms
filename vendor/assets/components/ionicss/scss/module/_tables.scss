@@ -1,0 +1,47 @@
+
+@mixin tables($arg:()) {
+  $arg: map-merge((
+    name: 'table',
+    width: 100%,
+    border: solid 1px $table-cell-border
+  ), $arg);
+
+  .#{map-get($arg, name)} {
+    width: map-get($arg, width);
+    max-width: map-get($arg, width);
+    font-size: $font-size-base;
+
+    th,
+    td {
+      padding: $table-cell-padding;
+      vertical-align: middle;
+      line-height: $line-height-base;
+      border-top: map-get($arg, border);
+      text-align: left;
+    }
+    // Bottom align for column headings
+    th {
+      vertical-align: bottom;
+    }
+
+    &--bordered {
+      border: map-get($arg, border);
+      th,
+      td {
+        border: map-get($arg, border);
+      }
+    }
+
+    &--stripped {
+      tr:nth-of-type(odd) {
+        background: $table-alt-bkg;
+      }
+    }
+
+    &--hover {
+      tr:hover {
+        background-color: $table-hover-bkg;
+      }
+    }
+  }
+}

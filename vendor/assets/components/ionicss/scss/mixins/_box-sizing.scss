@@ -1,0 +1,14 @@
+// @access public
+// @param {String} $type - Either `border-box`, `padding-box` or `content-box`
+// @example scss - Usage
+//   .foo {
+//     @include box-sizing(border-box);
+//   }
+// @example css - Result
+//   .foo {
+//     -moz-box-sizing: border-box;
+//     box-sizing: border-box;
+//   }
+@mixin box-sizing($type: border-box) {
+  @include prefix(box-sizing, $type, 'moz');
+}

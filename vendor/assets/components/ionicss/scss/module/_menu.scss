@@ -1,0 +1,59 @@
+@mixin menu($arg:()) {
+  $arg: map-merge((
+    name: 'menu',
+    border: (
+      style: solid,
+      width: 1px,
+      color: #ccc
+    ),
+    radius: 3px,
+    background: #fff
+  ), $arg);
+
+  .#{map-get($arg, name)} {
+    border-radius: map-get($arg, radius);
+    border-style: map-deep-get($arg, border, style);
+    border-width: map-deep-get($arg, border, width);
+    border-color: map-deep-get($arg, border, color);
+    background: map-get($arg, background);
+    &__item {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: $font-color-action;
+
+      &:hover {
+        background: darken(map-get($arg, background), 5%);
+        color: $font-color-base;
+      }
+      &:visited {
+        color: $font-color-action;
+      }
+      &--is-active {
+        border-left: solid 4px $brand-color-primary;
+        color: $font-color-base;
+        &:visited {
+          color: $font-color-base;
+        }
+      }
+    }
+    &__title {
+      display: block;
+      padding: 10px 20px;
+      background: darken(map-get($arg, background), 5%);
+      font-family: $font-family-action;
+      font-weight: 700;
+      font-size: $font-size-base * 1.1;
+      text-decoration: none;
+    }
+  }
+
+  // Border on all items except first.
+  .#{map-get($arg, name)}__item + .#{map-get($arg, name)}__item,
+  .#{map-get($arg, name)}__title + .#{map-get($arg, name)}__item,
+  .#{map-get($arg, name)}__item + .#{map-get($arg, name)}__title, {
+    border-top-style: map-deep-get($arg, border, style);
+    border-top-width:  map-deep-get($arg, border, width);
+    border-top-color: map-deep-get($arg, border, color);
+  }
+}

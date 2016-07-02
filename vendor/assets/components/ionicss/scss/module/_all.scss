@@ -1,0 +1,8 @@
+@mixin all() {
+  @include alerts();
+  @include buttons();
+  @include control-group();
+  @include forms();
+  @include menu();
+  @include tables();
+}

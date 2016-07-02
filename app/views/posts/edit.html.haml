@@ -1,0 +1,7 @@
+.wrapper
+	.row
+		.column.column--1-of-2.column--centered
+			= render 'form'
+			= link_to 'Show', @post
+			%label.button.button--primary{:for => 'postSubmit'} Update Post
+			= link_to 'Back', posts_path

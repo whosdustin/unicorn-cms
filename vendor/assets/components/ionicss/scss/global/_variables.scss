@@ -1,0 +1,145 @@
+// Colors // -------------------------------------------------------------------
+$brand-color-primary:   #5F81E4 !default;
+$brand-color-secondary: #F67FF5 !default;
+$brand-color-tertiary:  #47E4E0 !default;
+$brand-color-neutral:   #E4E4E4 !default;
+
+// Font Color
+$font-color-base:       #434343 !default;
+$font-color-action:     $brand-color-primary !default;
+
+// Typography // ---------------------------------------------------------------
+
+// Base Styles
+$font-family-primary:   sans-serif  !default;
+$font-family-secondary: serif       !default;
+$font-family-code:      monospace   !default;
+
+// Specific Styles
+$font-family-base:        $font-family-primary    !default;
+$font-family-action:      $font-family-primary    !default;
+$font-family-heading:     $font-family-secondary  !default;
+$font-family-lead:        $font-family-secondary  !default;
+$font-family-blockquote:  $font-family-secondary  !default;
+$font-family-form:        $font-family-action     !default;
+
+// Font Weights
+$font-weight-base:        400 !default;
+$font-weight-action:      400 !default;
+$font-weight-heading:     700 !default;
+$font-weight-lead:        400 !default;
+
+// Font Sizes
+$font-size-base:      14px  !default;
+$line-height-base:    1.4   !default;
+$modular-scale-ratio: 1.333 !default;
+// Element Specific
+$font-size-blockquote: 18px !default;
+
+
+
+
+
+// Grid // ---------------------------------------------------------------------
+
+// Namespace
+$grid-namespace: 'row' !default;
+$grid-column-namespace: 'column' !default;
+
+// Array of column numbers
+$col-groups: (2, 3, 4, 5, 6, 8, 12) !default;
+
+// Gutter width
+$gutter-width: 20px !default;
+
+// Pushes and pulls (boolean)
+$pushes: true !default;
+$pulls: true !default;
+
+// Media queries breakpoints // ------------------------------------------------
+
+$bp-smallest:    24.615em !default; // 320px
+$bp-smaller:     36.923em !default; // 480px
+$bp-small:       46.154em !default; // 600px
+$bp-medium:      59.077em !default; // 768px
+$bp-large:       69.231em !default; // 900px
+$bp-larger:      84.615em !default; // 1100px
+$bp-largest:     100em    !default; // 1300px
+
+// State Colors // -------------------------------------------------------------
+
+$state-error-color:   #DB4D4D                           !default;
+$state-error-bkg:     lighten($state-error-color, 30%)  !default;
+$state-error-border:  $state-error-color                !default;
+
+$state-success-color:   #9dcc7a                             !default;
+$state-success-bkg:     lighten($state-success-color, 30%)  !default;
+$state-success-border:  $state-success-color                !default;
+
+$state-warning-color:   #FFB84D                             !default;
+$state-warning-bkg:     lighten($state-warning-color, 30%)  !default;
+$state-warning-border:  $state-warning-color                !default;
+
+$state-info-color:  #4D94FF                           !default;
+$state-info-bkg:    lighten($state-info-color, 30%)   !default;
+$state-info-border: $state-info-color                 !default;
+
+// $key: ($border, $background, $color, $icon)
+$states: (
+  info: ($state-info-border, $state-info-bkg, $state-info-color),
+  error: ($state-error-border, $state-error-bkg, $state-error-color),
+  success: ($state-success-border, $state-success-bkg, $state-success-color),
+  warning: ($state-warning-border, $state-warning-bkg, $state-warning-color)
+);
+
+// Button Colors // ------------------------------------------------------------
+
+$button-default-bkg:    #fff              !default;
+$button-default-border: #ccc              !default;
+$button-default-color:  $font-color-base  !default;
+
+$button-primary-bkg:    $brand-color-primary  !default;
+$button-primary-border: $brand-color-primary  !default;
+$button-primary-color:  #fff                  !default;
+
+$button-secondary-bkg:    $brand-color-tertiary  !default;
+$button-secondary-border: $brand-color-tertiary  !default;
+$button-secondary-color:  $font-color-base       !default;
+
+$button-tertiary-bkg:     $brand-color-neutral  !default;
+$button-tertiary-border:  $brand-color-neutral  !default;
+$button-tertiary-color:   $font-color-base      !default;
+
+// $button-success-bkg: $limeade;
+// $button-success-border: darken($limeade, 7);
+// $button-success-color: $white;
+
+$button-colors: (
+  default: ($button-default-border, $button-default-bkg, $button-default-color),
+  primary: ($button-primary-border, $button-primary-bkg, $button-primary-color),
+  secondary: ($button-secondary-border, $button-secondary-bkg, $button-secondary-color),
+  tertiary: ($button-tertiary-border, $button-tertiary-bkg, $button-tertiary-color)
+);
+
+// Form Colors // --------------------------------------------------------------------
+
+$form-label-color: #666;
+
+$input-bkg: #fff;
+$input-border: #ccc;
+$input-color: #434343;
+
+$input-color-placeholder: #ccc;
+
+$input-bkg-disabled: #ccc;
+$input-border-disabeled: #ddd;
+
+$select-image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAMAAACzvE1FAAAADFBMVEUzMzMzMzMzMzMzMzMKAG/3AAAAA3RSTlMAf4C/aSLHAAAAPElEQVR42q3NMQ4AIAgEQTn//2cLdRKppSGzBYwzVXvznNWs8C58CiussPJj8h6NwgorrKRdTvuV9v16Afn0AYFOB7aYAAAAAElFTkSuQmCC';
+
+// Tables // -------------------------------------------------------------------
+
+$table-alt-bkg: #f2f2f2;
+$table-hover-bkg: #eee;
+
+$table-cell-border: #e4e4e4;
+$table-cell-padding: 10px;

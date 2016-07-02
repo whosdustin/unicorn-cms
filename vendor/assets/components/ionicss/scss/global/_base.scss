@@ -1,0 +1,25 @@
+body {
+  font-size: $font-size-base;
+  color: $font-color-base;
+  line-height: $line-height-base;
+}
+
+a {
+  font-family: $font-family-action;
+  font-weight: $font-weight-action;
+  // color: $font-color-action;
+  &:hover {
+    // color: $font-color-action;
+  }
+  &:visited {
+    // color: $font-color-action;
+  }
+  &:active {
+    outline: none;
+  }
+}
+
+hr {
+  margin: $gutter-width 0;
+  border-top: 1px solid #999;
+}

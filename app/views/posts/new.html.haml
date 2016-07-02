@@ -1,0 +1,7 @@
+.wrapper
+	.row
+		.column.column--1-of-2.column--centered
+			%h1 New Post
+			= render 'form'
+			%label.button.button--primary{:for => 'postSubmit'} Publish
+			= link_to 'Back', posts_path

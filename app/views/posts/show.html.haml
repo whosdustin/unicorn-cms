@@ -1,0 +1,13 @@
+.wrapper
+	.row
+		.column.column--1-of-2.column--centered
+			- if flash[:notice]
+				.alert.alert--has-success= notice
+			%article{:role => 'article',
+								:itemscope => true,
+								:itemtype => 'http://schema.org/Article'}
+				%h1.page__title{:itemprop => 'headline'}
+					= @post.title
+				= markdown(@post.content)
+			= link_to 'Edit', edit_post_path(@post)
+			-# = link_to 'Back', posts_path

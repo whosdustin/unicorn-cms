@@ -1,0 +1,24 @@
+{
+  "name": "ionicss",
+  "description": "Basic front-end framework and guidelines",
+  "version": "0.1.2",
+  "main": "scss/ionicss.scss",
+  "authors": [
+    "Dustin Delatore <dustin@delatore.me>"
+  ],
+  "dependencies": {
+  },
+  "ignore": [
+    "**/.*",
+    "*.md",
+    "*.json",
+    "*.yml",
+    "Gemfile",
+    "Gemfile.lock",
+    "node_modules",
+    "bower_components",
+    "app",
+    "test",
+    "tests"
+  ]
+}

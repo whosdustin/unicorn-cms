@@ -1,0 +1,19 @@
+// @access public
+// @param {Color} $color - color variable
+// @example scss - Usage
+//  input {
+//      @include placeholder();
+//  }
+// @example css - Result
+//  input{
+//    &:-moz-placeholder            { color: $input-color-placeholder; }
+//    &::-moz-placeholder           { color: $input-color-placeholder; }
+//    &:-ms-input-placeholder       { color: $input-color-placeholder; }
+//    &::-webkit-input-placeholder  { color: $input-color-placeholder; }
+//  }
+@mixin placeholder($color: $input-color-placeholder) {
+  &:-moz-placeholder { color: $color; } // Firefox 4-18
+  &::-moz-placeholder { color: $color; } // Firefox 19+
+  &:-ms-input-placeholder { color: $color; } // Internet Explorer 10+
+  &::-webkit-input-placeholder { color: $color; } // Safari and Chrome
+}

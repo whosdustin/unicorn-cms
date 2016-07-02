@@ -1,0 +1,47 @@
+@mixin control-group($arg:()) {
+  $arg: map-merge((
+    name: 'control-group',
+  ), $arg);
+
+  .#{map-get($arg, name)} {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+
+    > .button {
+      position: relative;
+      float: left;
+    }
+
+    > .button:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+
+    > .button:first-child {
+      margin-left: 0;
+      &:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    .button + .button,
+    .button + .control-group,
+    .control-group + .button,
+    .control-group + .control-group {
+      margin-left: -1px;
+    }
+  }
+
+  .m-control-group > .button:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    > [class*='fa'] {
+      margin-right: 0;
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+// Return control-group styles
+// @include control-group();

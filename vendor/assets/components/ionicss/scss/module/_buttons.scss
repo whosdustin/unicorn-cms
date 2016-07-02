@@ -1,0 +1,95 @@
+
+
+@mixin buttons($arg: ()) {
+  // Extend default arguments
+  $arg: map-merge((
+    name: 'button',
+    padding: 10px 20px,
+    radius: 3px,
+    font-family: $font-family-action,
+    font-weight: 400,
+    // icon: 'lms-',
+    icon-size: 1.6rem,
+    type: 'default' 'primary' 'secondary' 'tertiary'
+  ), $arg);
+
+  // Dumping CSS
+  .#{map-get($arg, name)} {
+    width: auto;
+    display: inline-block;
+    padding: map-get($arg, padding);
+    border: 1px solid transparent;
+    border-radius: map-get($arg, radius);
+    background-image: none;
+    font-family: map-get($arg, font-family);
+    font-weight: map-get($arg, font-weight);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+
+    // Style all button types
+    @each $type in map-get($arg, type) {
+      //.button--default .button--primary
+      &--#{$type} {
+        border-color: nth(map-get($button-colors, #{$type}), 1);
+        background-color: nth(map-get($button-colors, #{$type}), 2);
+        color: nth(map-get($button-colors, #{$type}), 3);
+        &:hover {
+          border-color: darken(nth(map-get($button-colors, #{$type}), 1), 5);
+          background-color: darken(nth(map-get($button-colors, #{$type}), 2), 5);
+          color: nth(map-get($button-colors, #{$type}), 3);
+        }
+        &:visited {
+          color: nth(map-get($button-colors, #{$type}), 3);
+        }
+      }
+    }
+
+    &[disabled],
+    &--is-disabled {
+      @include opacity(0.5);
+      cursor: default;
+      pointer-events: none;
+    }
+
+    // Full width button
+    &--full {
+      width: 100%;
+    }
+
+    // Icon inside button
+    &__icon {
+      position: relative;
+      top: 1px;
+      font-size: #{map-get($arg, icon-size)};
+      // Specific to LMS icons
+      i[class*='#{map-get($arg, icon)}'] {
+        top: 2px;
+      }
+      &--has-text {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  // Button Toggle
+  // REVISIT WHEN JS COMPONENTS ARE IMPLEMENTED
+  // ------------------------------------
+  // .#{map-get($arg, name)}__toggle {
+  //   display: inline-block;
+  //   width: auto;
+  //   padding: 0.2rem;
+  //   margin: 0.8rem 0;
+  //   border: solid 1px $button-default-border;
+  //   border-radius: 4px;
+  //   background: $white;
+  //   .#{map-get($arg, name)} {
+  //     margin: 0;
+  //   }
+  //   > .#{map-get($arg, name)}--is-inactive {
+  //     border-color: transparent;
+  //     background: transparent;
+  //   }
+  // }
+}
+// Return button styles
+// @include buttons();
