@@ -1,7 +1,9 @@
 .wrapper
 	.row
 		.column.column--1-of-2.column--centered
-			%h1 New Post
 			= render 'form'
-			%label.button.button--primary{:for => 'postSubmit'} Publish
-			= link_to 'Back', posts_path
+		.actions
+			%label.button.button--primary.fa.fa-floppy-o{:for => 'postSubmit'}
+				%span.sr-only Publish
+			= link_to posts_path, class: 'button button--default fa fa-close' do
+				%span.sr-only Cancel

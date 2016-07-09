@@ -11,6 +11,6 @@
 	= f.text_field :title, class: 'form__input form__input--title', :placeholder => 'Title here'
 
 	%label.sr-only= f.label :content
-	= f.text_area :content, class: 'form__input form__input--content', :placeholder => 'Write post here'
-	.actions
+	= f.text_area :content, style: 'display:none'
+	%div
 		= f.submit id: 'postSubmit', class: 'sr-only'

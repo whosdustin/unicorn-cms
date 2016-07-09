@@ -16,3 +16,82 @@
   font-family: $font-family-primary;
   resize: none;
 }
+.post__title {
+	margin: 10px 0;
+}
+
+.post__meta {
+	clear: both;
+	height: 30px;
+	font-family: $font-family-secondary;
+	&--right {
+		float: right;
+	}
+	&--left {
+		float: left;
+	}
+}
+
+.actions {
+	position: fixed;
+	bottom: 10px;
+	right: 1rem;
+	& > .button {
+		margin-bottom: 1rem;
+		width: 42px;
+		padding: 10px 0;
+	}
+}
+
+.CodeMirror,
+.editor-toolbar {
+	border: 0;
+}
+
+.editor-statusbar {
+	font-size: 0.7em;
+	font-family: $font-family-secondary;
+	.guide {
+		float: left;
+		margin-left: 0;
+	}
+}
+
+.heart {
+	display: block;
+	position: relative;
+	width: 50px;
+	height: 23px;
+}
+
+.heart .heart__img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	transition: all 0.3s;
+	transition-timing-function: ease;
+	-webkit-transition-timing-function: ease;
+}
+
+.heart__link:hover .heart__img {
+	left: -2px;
+	width: 23px;
+	height: 23px;
+}
+
+.heart__float {
+	position: absolute;
+	top: 0;
+	left: -2px;
+	width: 23px;
+	height: 23px;
+}
+
+.heart__number {
+	position: absolute;
+	top: -5px;
+	left: 28px;
+	font-family: $font-family-secondary;
+}

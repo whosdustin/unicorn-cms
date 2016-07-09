@@ -2,6 +2,8 @@
 	.row
 		.column.column--1-of-2.column--centered
 			= render 'form'
-			= link_to 'Show', @post
-			%label.button.button--primary{:for => 'postSubmit'} Update Post
-			= link_to 'Back', posts_path
+			.actions
+				%label.button.button--primary.fa.fa-floppy-o{:for => 'postSubmit', :title => 'Update'}
+					%span.sr-only Update
+				= link_to  @post, class: 'button button--default fa fa-trash', title: 'Delete',  method: :delete, data: { confirm: 'Are you sure?' } do
+					%span.sr-only Delete

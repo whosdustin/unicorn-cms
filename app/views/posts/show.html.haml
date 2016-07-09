@@ -6,8 +6,16 @@
 			%article{:role => 'article',
 								:itemscope => true,
 								:itemtype => 'http://schema.org/Article'}
-				%h1.page__title{:itemprop => 'headline'}
+
+				%h1.post__title{:itemprop => 'headline'}
 					= @post.title
+				.post__meta
+					%small.post__meta--left= cleandate(@post.created_at)
+					.heart.post__meta--right
+						%a{:onclick => "like(this,'#{@post.id}')",:href => 'javascript:void(0);', :class => 'heart__link'}
+							= image_tag('heart.svg', class: 'heart__img')
+						%small{:id => "like_count_#{@post.id}", :class => 'heart__number'}= @post.like
 				= markdown(@post.content)
-			= link_to 'Edit', edit_post_path(@post)
-			-# = link_to 'Back', posts_path
+			.actions
+				= link_to edit_post_path(@post), class: 'button button--default fa fa-pencil', title: 'Edit' do
+					%span.sr-only Edit

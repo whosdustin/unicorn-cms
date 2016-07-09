@@ -29,7 +29,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'bson_ext'
+# Generate and find Slug IDs
+gem 'mongoid-slug'
 
+# authentication solution for Rails based on Warden
+gem 'devise'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

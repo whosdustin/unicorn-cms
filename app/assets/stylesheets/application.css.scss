@@ -1,7 +1,9 @@
 @import 'variables';
 @import 'ionicss/scss/ionicss';
 @include forms();
-@include buttons();
+@include buttons((
+	radius: 40px
+));
 @include alerts();
 @import 'typography';
 @import 'posts';

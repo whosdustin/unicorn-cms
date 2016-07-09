@@ -25,7 +25,6 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -36,6 +35,20 @@ class PostsController < ApplicationController
       end
     end
   end
+
+	def uplike
+		set_post
+		@post.inc(like: 1)
+		respond_to do |format|
+      if @post.update(like_params)
+        format.html { render :show }
+				format.json { render json: @post }
+      else
+        format.html { render :edit }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+	end
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
@@ -69,6 +82,12 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, :like)
     end
+
+		def like_params
+			params.permit(:like)
+		end
+
+
 end
