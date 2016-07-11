@@ -1,0 +1,16 @@
+%aside.actions
+	- if current_page?(action: 'new')
+		%label{:for => 'postSubmit', :class => 'button button--default'} Publish
+		= link_to 'Cancel', posts_path, title: 'Cancel'
+
+	- if controller.action_name != 'new'
+
+		- if current_page?(action: 'show') && user_signed_in?
+			= link_to 'Edit', edit_post_path(@post), title: 'Edit'
+
+		- if current_page?(action: 'edit')
+			%label{:for => 'postSubmit', :title => 'Update', :class => 'button button--default'} Update
+			%br/
+			= link_to 'Delete',  @post, title: 'Delete',  method: :delete, data: { confirm: 'Are you sure?' }
+			%br/
+			= link_to 'Cancel', @post, title: 'Cancel'

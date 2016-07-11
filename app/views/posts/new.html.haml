@@ -2,8 +2,4 @@
 	.row
 		.column.column--1-of-2.column--centered
 			= render 'form'
-		.actions
-			%label.button.button--primary.fa.fa-floppy-o{:for => 'postSubmit'}
-				%span.sr-only Publish
-			= link_to posts_path, class: 'button button--default fa fa-close' do
-				%span.sr-only Cancel
+	= render 'posts/shared/links'
