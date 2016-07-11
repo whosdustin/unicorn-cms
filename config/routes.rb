@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
-	resources :posts do
+	# Authentication
+	devise_for :users, :path => '', :path_names => {
+		:sign_in => '/unicorn'
+	}
+	# Blog Articles
+	resources :posts, :path => 'articles' do
 		member do
 			put :uplike
 		end
