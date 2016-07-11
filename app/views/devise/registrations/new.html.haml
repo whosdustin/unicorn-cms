@@ -1,0 +1,20 @@
+.wrapper
+	.row
+		.column.column--1-of-3.column--centered
+			%h2 Sign up
+			= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+				= devise_error_messages!
+				.field
+					= f.label :email, class: 'sr-only'
+					= f.email_field :email, autofocus: true, class: 'form__input', placeholder: 'Email'
+				.field
+					= f.label :password, class: 'sr-only'
+					= f.password_field :password, autocomplete: "off", class: 'form__input', placeholder: 'Pasword'
+					- if @minimum_password_length
+						%small
+							(#{@minimum_password_length} characters minimum)
+				.field
+					= f.label :password_confirmation, class: 'sr-only'
+					= f.password_field :password_confirmation, autocomplete: "off", class: 'form__input', placeholder: 'Confirm password'
+					= f.submit 'Sign up', class: 'button button--primary'
+			= render 'devise/shared/links'
