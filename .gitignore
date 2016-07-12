@@ -59,6 +59,7 @@ config/mandrill.yml
 config/paperclip.yml
 config/mongoid.yml
 config/secrets.yml
+config/local_env.yml
 
 # System Recordings from Tropo
 public/tropo_recordings/**/*

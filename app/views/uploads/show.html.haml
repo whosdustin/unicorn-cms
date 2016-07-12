@@ -1,0 +1,11 @@
+= link_to 'Destroy', @upload,  method: :delete, data: { confirm: 'Are you sure?' }
+%img{:src => @upload.image.url}/
+%br/
+%img{:src => @upload.image.large}/
+%br/
+%img{:src => @upload.image.medium}/
+%br/
+%img{:src => @upload.image.thumb}/
+%br/
+%img{:src => @upload.image.square}/
+%br/

@@ -32,6 +32,11 @@ gem 'bson_ext'
 # Generate and find Slug IDs
 gem 'mongoid-slug'
 
+gem 'carrierwave', :git => "git://github.com/jnicklas/carrierwave.git"
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'fog'
+
+gem 'mini_magick', '~> 4.3'
 # authentication solution for Rails based on Warden
 gem 'devise'
 # Use ActiveModel has_secure_password
