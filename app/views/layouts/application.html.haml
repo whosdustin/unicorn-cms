@@ -5,11 +5,14 @@
 		%link{rel:'dns-prefetch', href:'//fonts.googleapis.com'}
 		%link{href:'//fonts.googleapis.com/css?family=Gentium+Book+Basic|Open+Sans:400,700',rel:'stylesheet', type:'text/css'}
 		= stylesheet_link_tag '//cdn.jsdelivr.net/simplemde/latest/simplemde.min.css', 'data-turbolinks-track' => true
+		= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.css'
 		= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
 		= csrf_meta_tags
-	%body
+	%body{:class => "#{controller_name} #{action_name}"}
 		= render 'layouts/header'
-		= yield
+		= render 'layouts/notice'
+		%main
+			= yield
 		= render 'layouts/footer'
 		= javascript_include_tag 'application', 'data-turbolinks-track' => true
-		= javascript_include_tag '//cdn.jsdelivr.net/simplemde/latest/simplemde.min.js', 'data-turbolinks-track' => true
+		= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.js'
