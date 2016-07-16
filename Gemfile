@@ -37,8 +37,13 @@ gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'fog'
 
 gem 'mini_magick', '~> 4.3'
+
+gem 'paperclip', '~> 3.0'
+gem 'paperclip-meta'
 # authentication solution for Rails based on Warden
 gem 'devise'
+
+gem 'dropzonejs-rails', '~> 0.7.3'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
