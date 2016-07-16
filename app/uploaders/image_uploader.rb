@@ -16,6 +16,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     "#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+	def cache_dir
+    "tmp/#{model.class.to_s.underscore}-cache/#{mounted_as}/#{model.id}"
+  end
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -37,6 +41,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
+	version :xlarge do
+    process resize_to_limit: [1400, 1400]
+  end
+
 	version :large do
     process resize_to_limit: [800, 800]
   end
