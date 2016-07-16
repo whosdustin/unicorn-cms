@@ -2,6 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+main {
+	padding-top: 80px;
+}
+
+.dropzone {
+	border: dashed 1px #98C6F5;
+	background: rgba(#98C6F5, 0.1);
+}
+
+.dropzone .dz-message {
+	font-family: $font-family-action;
+}
+
 .form__input {
   border: 0;
   &:focus {
@@ -34,8 +47,11 @@
 
 aside.actions {
 	position: fixed;
-	left: 0;
+	width: 260px;
+	right: 0;
 	top: 10vh;
+	padding: 1rem;
+	z-index: 100;
 }
 
 .CodeMirror,
