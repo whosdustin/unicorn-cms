@@ -19,6 +19,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+		@uploads = Upload.order_by(created_at: :desc)
   end
 
   # POST /posts
