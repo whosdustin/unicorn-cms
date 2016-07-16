@@ -1,0 +1,8 @@
+= form_for :upload, :url => uploads_path, html: { multipart: true, class: "dropzone"}, id: 'my-awesome-dropzone', method: :post do |f|
+	-# = f.file_field :image
+
+.uploads{:style => 'overflow-y: scroll; height: 250px'}
+	.row
+		- @uploads.each do |upload|
+			.column.column--1-of-2
+				= image_tag upload.image.thumb
