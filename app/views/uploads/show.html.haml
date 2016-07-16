@@ -1,11 +1,18 @@
-= link_to 'Destroy', @upload,  method: :delete, data: { confirm: 'Are you sure?' }
-%img{:src => @upload.image.url}/
-%br/
-%img{:src => @upload.image.large}/
-%br/
-%img{:src => @upload.image.medium}/
-%br/
-%img{:src => @upload.image.thumb}/
-%br/
-%img{:src => @upload.image.square}/
-%br/
+.wrapper
+	.row
+		.column.column--2-of-3.column--centered
+			.row
+				.column.column--1-of-2
+					%img{:src => @upload.image.url, :width => '100%'}
+					= link_to 'Delete', @upload, class: 'button button--default right',  method: :delete, data: { confirm: 'Are you sure?' }
+				.column.column--1-of-2
+					%label{:class => 'form__label'} X-Large
+					%input{:class => 'form__input', :value => @upload.image.xlarge}
+					%label{:class => 'form__label'} Large
+					%input{:class => 'form__input', :value => @upload.image.large}
+					%label{:class => 'form__label'} Medium
+					%input{:class => 'form__input', :value => @upload.image.medium}
+					%label{:class => 'form__label'} Thumb
+					%input{:class => 'form__input', :value => @upload.image.thumb}
+					%label{:class => 'form__label'} Square
+					%input{:class => 'form__input', :value => @upload.image.square}
