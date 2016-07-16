@@ -2,7 +2,7 @@ class UploadsController < ApplicationController
 	before_action :set_upload, only: [:show, :edit, :update, :destroy]
 	# GET /uploads
 	def index
-		@uploads = Upload.all
+		@uploads = Upload.order_by(created_at: :desc)
 	end
 
 	# GET /uploads/1
@@ -20,7 +20,7 @@ class UploadsController < ApplicationController
 
 	# POST /uploads
 	def create
-		@upload = Upload.new(post_upload_params)
+		@upload = Upload.new(upload_params)
 		respond_to do |format|
       if @upload.save
         format.html { redirect_to @upload, notice: 'Upload was successfully created.' }
@@ -35,7 +35,7 @@ class UploadsController < ApplicationController
 	# PATCH/PUT /uploads/1
 	def update
 		respond_to do |format|
-      if @upload.update(post_upload_params)
+      if @upload.update(upload_params)
         format.html { redirect_to @upload, notice: 'Upload attachment was successfully updated.' }
         format.json { render :show, status: :ok, location: @upload }
       else
@@ -61,7 +61,7 @@ class UploadsController < ApplicationController
 		end
 
 		# Never trust parameters from the scary internet, only allow the white list through.
-		def post_upload_params
-			params.require(:upload).permit(:image)
+		def upload_params
+			params.require(:upload).permit(:image) if params[:upload]
 		end
 end
